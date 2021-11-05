@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>adeburea's website</title>
+	<link rel="stylesheet" href="background.css">
+</head>
+
+<body>
+	<script>
+	function getRandomColor() {
+		var letters = '0123456789ABCDEF';
+		var color = '#';
+		for (var i = 0; i < 6; i++) {
+			color += letters[Math.floor(Math.random() * 16)];
+		}
+		return color;
+	}
+	function change_color() {
+		document.getElementsByTagName("body")[0].style.backgroundColor = getRandomColor();
+	}
+	</script>
+	<center><button onclick="change_color()">Click me !</button></center>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en-EN">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>adeburea's website</title>
+</head>
+
+<style>
+#balloon {
+	width: 200px;
+	height: 200px;
+	display: inline-block;
+	border-radius: 100%;
+	border:solid black 2px;
+	background-color: red;
+}
+</style>
+
+<body>
+	<script>
+
+	function getStyle(element, property) {
+		return getComputedStyle ? getComputedStyle(element, null)[property] :
+		element.currentStyle ? element.currentStyle[property] : element.style[property];
+	}
+
+	function balloon_click() {
+		var color = getStyle(document.getElementById("balloon"), 'backgroundColor');
+		if (color == 'rgb(255, 0, 0)')
+			color = 'rgb(0, 128, 0)';
+		else if (color == 'rgb(0, 128, 0)')
+			color = 'rgb(0, 0, 255)'
+		else
+			color = 'rgb(255, 0, 0)'
+		document.getElementById("balloon").style.backgroundColor = color;
+	}
+
+	</script>
+
+	<center><div id="balloon" onclick="balloon_click()"></div></center>
+</body>
+</html>
