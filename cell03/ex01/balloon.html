@@ -19,7 +19,6 @@
 
 <body>
 	<script>
-
 	function getStyle(element, property) {
 		return getComputedStyle ? getComputedStyle(element, null)[property] :
 		element.currentStyle ? element.currentStyle[property] : element.style[property];
@@ -29,7 +28,7 @@
 		var container = document.getElementById("balloon");
 		container.style.height = (container.offsetHeight += 10) + "px";
 		container.style.width = (container.offsetWidth += 10) + "px";
-		if (container.style.height >= "420px" || container.style.width >= "420px")
+		if (container.style.width > "420px")
 		{
 			container.style.height = "200px";
 			container.style.width = "200px";
@@ -43,9 +42,15 @@
 			color = 'rgb(255, 0, 0)'
 		document.getElementById("balloon").style.backgroundColor = color;
 	}
-
+	function balloon_unfocus() {
+		var container = document.getElementById("balloon");
+		if (container.style.width > "200px")
+		{
+			container.style.height = (container.offsetHeight -= 5) + "px";
+			container.style.width = (container.offsetWidth -= 5) + "px";
+		}
+	}
 	</script>
-
-	<center><div id="balloon" onclick="balloon_click()"></div></center>
+	<center><div id="balloon" onclick="balloon_click()" onmouseleave="balloon_unfocus()"></div></center>
 </body>
 </html>
